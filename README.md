@@ -4,8 +4,8 @@ In this workshop, you will learn how to use Snakemake, a workflow management too
 
 This workshop assumes that you have:
 * A Mac/OS system
-* Basic unix command knowledge
-* Two folders containing matching /fast5 and /fastq files
+* Basic unix command knowledge using Terminal on a Mac
+* Set of folders containing matching /fast5 and /fastq files
 
 ## Installing Dependencies
 
@@ -15,27 +15,32 @@ mkdir snakemake
 cd snakemake
 ```
 
-Install Mambaforge
+Install Mambaforge.
 ```
 curl -L https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-MacOSX-x86_64.sh -o Mambaforge-MacOSX-x86_64.sh
 bash Mambaforge-MacOSX-x86_64.sh
 ```
 
-Install Snakemake
+Install Snakemake.
 ```
 conda activate base
 mamba create -c conda-forge -c bioconda -n snakemake snakemake
 conda deactivate
 ```
 
-Test to see if Snakemake was installed
+Test to see if Snakemake was installed.
 ```
 conda activate snakemake
 snakemake --help
+conda deactivate
 ```
 
-Install Atom using the link below
+Install Atom using the link below.
 
 https://atom.io/
 
-## Running Snakemake
+Atom is a text editor that will allow you to edit the Snakefile as well as the env file to run Snakemake while having a Terminal window open at the same time.
+
+## Running a Snakemake Workflow
+
+
