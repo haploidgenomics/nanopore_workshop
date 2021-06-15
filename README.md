@@ -140,5 +140,69 @@ snakemake --use-conda --cores 2 output/fyle -n
 ```
 Run the command without the "-n" command next.
 
+**Polish Draft Assembly using Racon**
 
+Add these commands to the Snakefile, and hit save.
+```
+rule bwa:
+    input:
+        reads="output/merged_filtlong.fastq",
+        draft="output/flye/assembly.fasta"
+    output:
+        "output/mapping.sam"
+    conda:
+        "env/nanopore.yaml"
+    shell:
+        """
+        bwa index {input.draft}
 
+        bwa mem -x ont2d -t 4 {input.draft} {input.reads} > {output}
+        """
+
+rule racon:
+    input:
+        reads="output/merged_filtlong.fastq",
+        draft="output/flye/assembly.fasta",
+        samfile="output/mapping.sam"
+    output:
+        "output/racon.fasta"
+    conda:
+        "env/nanopore.yaml"
+    shell:
+        "racon -m 8 -x -6 -g -8 -w 500 -t 4 {input.reads} "
+        "{input.samfile} {input.draft} > {output}"
+```
+You will then perform a dry run, followed by regular run using the snakemake command.
+```
+conda activate snakemake
+snakemake --use-conda --cores 2 output/racon.fasta -n
+```
+Run the command without the "-n" command next.
+
+**Polish Draft Assembly using Medaka**
+
+Add these commands to the Snakefile, and hit save.
+```
+rule medaka:
+    input:
+        reads="output/merged_filtlong.fastq",
+        racon="output/racon.fasta"
+    output:
+        dir=directory("output/medaka")
+    conda:
+        "env/nanopore.yaml"
+    shell:
+        "medaka_consensus -i {input.reads} "
+        "-d {input.racon} -o {output.dir} -t 4 -m r941_min_high"
+```
+
+You will then perform a dry run, followed by regular run using the snakemake command.
+```
+conda activate snakemake
+snakemake --use-conda --cores 2 output/medaka -n
+```
+Run the command without the "-n" command next.
+
+## Annotating Polished Assembly
+
+The goal is to find a single circular contig that is between 2.5 -- 3.0 Mb that is indicative of the entire chromosome.
