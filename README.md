@@ -15,7 +15,7 @@ mkdir snakemake
 cd snakemake
 ```
 
-Install Mambaforge.
+**Install Mambaforge.**
 ```
 curl -L https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-MacOSX-x86_64.sh -o Mambaforge-MacOSX-x86_64.sh
 bash Mambaforge-MacOSX-x86_64.sh
@@ -28,7 +28,7 @@ conda config --set auto_activate_base false
 Next, close the terminal window.  
 Then, reopen a new terminal window to activate conda and install Snakemake.
 
-Install Snakemake.
+**Install Snakemake.**
 ```
 conda activate base
 mamba create -c conda-forge -c bioconda -n snakemake snakemake
@@ -42,11 +42,14 @@ snakemake --help
 conda deactivate
 ```
 
-Install Atom using the link below.
+**Install Atom using the link below.**
 
 https://atom.io/
 
-Atom is a text editor that will allow you to edit the Snakefile as well as the env file to run Snakemake while having a Terminal window open at the same time.
+Atom is a text editor that will allow you to edit the Snakefile as well as the env file to run Snakemake while having a Terminal window open at the same time.  
+Next, open the Atom editor after installation.  
+You will also have to install a **Terminal** package in Atom. To do this, click on "Install a Package" and search for "Terminal", and install the package called "terminal-tab 0.6.0".  
+Now you are ready to run a Snakemake Workflow!
 
 ## Running a Snakemake Workflow
 
