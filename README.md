@@ -68,6 +68,20 @@ Next, you will need to create two files to run snakemake. Using Atom, create a n
 
 Add these dependencies in the nanopore.yaml file, and hit save.
 ```
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+ - bwa =0.7.17
+ - samtools =1.10
+ - filtlong =0.2.0
+ - minimap2 =2.17
+ - bwa =0.7.17
+ - biopython =1.77
+ - python =3.6
+ - flye =2.8.3
+ - racon =1.4.20
+ - medaka =1.0.3
 ```
 
 **Concatenate and Filter Fastq File**
