@@ -5,7 +5,8 @@ In this workshop, you will learn how to use Snakemake, a workflow management too
 This workshop assumes that you have:
 * A Mac/OS system
 * Basic unix command knowledge using Terminal on a Mac
-* Set of folders containing matching /fast5 and /fastq files
+* A folder containing /fastq files basecalled from the MinION
+* For this workshop, fastq files were generated from fast5 files base-called with Guppy 4.0 (there might be newer versions of Guppy available, which is updated by ONT on a regular basis, so check to use the latest version for best performance/accuracy)
 
 ## Installing Dependencies
 
@@ -51,5 +52,76 @@ Atom is a text editor that will allow you to edit the Snakefile as well as the e
 You will also have to install a **Terminal** package in Atom. To do this, click on "Install a Package" and search for "Terminal", and install the package called "terminal-tab 0.6.0". Now you are ready to run a Snakemake Workflow!
 
 ## Running a Snakemake Workflow
+
+First, you'll have to download the folder containing the the fastq files from the strain that you've been assigned to assemble. Put this folder under the /snakemake directory. In this example we will be working with the /s42 strain. There are three general steps:
+* Creating a filtered set of fastq files for assembly (using filtlong)
+* Creating a draft assembly (using flye)
+* Polishing the draft assembly (using racon and medaka)
+* Evaluating the assembly (using quast)
+
+You will follow along to see how this Snakemake Workflow is implemented so that you can use it for other applications as well.
+
+**Create Project in Atom**
+Open a new window on Atom, and click "Add Project Folder", then choose the /s42 folder (or the folder you're assigned to). After this, you should also launch a Terminal window in Atom by clicking "Packages" and then "Terminal". Terminal will appear at the bottom of the screen.
+
+Next, you will need to create two files to run snakemake. Using Atom, create a new file called "Snakefile". Then create a new folder called "env" and a file called "nanopore.yaml" within the env folder. Click on the Snakefile and nanopore.yaml file so you can edit them in Atom.
+
+Add these dependencies in the nanopore.yaml file, and hit save.
+```
+```
+
+**Concatenate and Filter Fastq File**
+Add these commands to the Snakefile, and hit save.
+```
+FASTQ, = glob_wildcards("data/fastq/{sample}.fastq")
+
+rule fastq_merge:
+    input:
+        expand("data/fastq/{sample}.fastq", sample=FASTQ)
+    output:
+        "output/merged.fastq"
+    shell:
+        "cat {input} > {output}"
+
+rule filtlong_reads:
+    input:
+        "output/merged.fastq"
+    output:
+        "output/merged_filtlong.fastq"
+    conda:
+        "env/nanopore.yaml"
+    shell:
+        "filtlong --min_length 3000 --min_mean_q 30 --length_weight 10 -p 90 "
+        "--target_bases 500000000 {input} > {output}"
+```
+You will then perform a dry run, followed by regular run using the snakemake command.
+```
+conda activate snakemake
+snakemake --use-conda --cores 2 output/merged_filtlong.fastq -n
+```
+Run the command without the "-n" command next.
+
+**Create a Draft Assembly using flye**
+Add these commands to the Snakefile, and hit save.
+```
+rule flye:
+    input:
+        "output/merged_filtlong.fastq"
+    output:
+        dir=directory("output/flye"),
+        assembly="output/flye/assembly.fasta"
+    conda:
+        "env/nanopore.yaml"
+    shell:
+        "flye --nano-raw {input} --out-dir {output.dir} --genome-size 3m --threads 8 --iterations 5"
+```
+
+You will then perform a dry run, followed by regular run using the snakemake command.
+```
+conda activate snakemake
+snakemake --use-conda --cores 2 output/fyle -n
+```
+Run the command without the "-n" command next.
+
 
 
