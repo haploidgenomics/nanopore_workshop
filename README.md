@@ -70,8 +70,8 @@ Next, you will need to create two files to run snakemake. Using Atom, create a n
 Add these dependencies in the nanopore.yaml file, and hit save.
 ```
 channels:
-  - conda-forge
-  - bioconda
+ - conda-forge
+ - bioconda
 dependencies:
  - bwa =0.7.17
  - samtools =1.10
