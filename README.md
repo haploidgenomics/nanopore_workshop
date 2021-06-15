@@ -46,10 +46,9 @@ conda deactivate
 
 https://atom.io/
 
-Atom is a text editor that will allow you to edit the Snakefile as well as the env file to run Snakemake while having a Terminal window open at the same time.  
-Next, open the Atom editor after installation.  
-You will also have to install a **Terminal** package in Atom. To do this, click on "Install a Package" and search for "Terminal", and install the package called "terminal-tab 0.6.0".  
-Now you are ready to run a Snakemake Workflow!
+Atom is a text editor that will allow you to edit the Snakefile as well as the env file to run Snakemake while having a Terminal window open at the same time. Open the Atom editor after installation.  
+
+You will also have to install a **Terminal** package in Atom. To do this, click on "Install a Package" and search for "Terminal", and install the package called "terminal-tab 0.6.0". Now you are ready to run a Snakemake Workflow!
 
 ## Running a Snakemake Workflow
 
