@@ -20,12 +20,12 @@ Install Mambaforge.
 curl -L https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-MacOSX-x86_64.sh -o Mambaforge-MacOSX-x86_64.sh
 bash Mambaforge-MacOSX-x86_64.sh
 ```
-Answer "yes" to first question about license.
+Answer "yes" to first question about license.  
 Answer "no" to second question about activation (This prevents anaconda from activating without you knowing). If you accidentally answered "yes" you can undo it by typing the command below.
 ```
 conda config --set auto_activate_base false
 ```
-Next, close the terminal window.
+Next, close the terminal window.  
 Then, reopen a new terminal window to activate conda and install Snakemake.
 
 Install Snakemake.
