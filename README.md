@@ -135,7 +135,6 @@ rule flye:
 
 You will then perform a dry run, followed by regular run using the snakemake command.
 ```
-conda activate snakemake
 snakemake --use-conda --cores 2 output/fyle -n
 ```
 Run the command without the "-n" command next.
@@ -174,7 +173,6 @@ rule racon:
 ```
 You will then perform a dry run, followed by regular run using the snakemake command.
 ```
-conda activate snakemake
 snakemake --use-conda --cores 2 output/racon.fasta -n
 ```
 Run the command without the "-n" command next.
@@ -198,7 +196,6 @@ rule medaka:
 
 You will then perform a dry run, followed by regular run using the snakemake command.
 ```
-conda activate snakemake
 snakemake --use-conda --cores 2 output/medaka -n
 ```
 Run the command without the "-n" command next.
