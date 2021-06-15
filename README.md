@@ -62,6 +62,7 @@ First, you'll have to download the folder containing the the fastq files from th
 You will follow along to see how this Snakemake Workflow is implemented so that you can use it for other applications as well.
 
 **Create Project in Atom**
+
 Open a new window on Atom, and click "Add Project Folder", then choose the /s42 folder (or the folder you're assigned to). After this, you should also launch a Terminal window in Atom by clicking "Packages" and then "Terminal". Terminal will appear at the bottom of the screen.
 
 Next, you will need to create two files to run snakemake. Using Atom, create a new file called "Snakefile". Then create a new folder called "env" and a file called "nanopore.yaml" within the env folder. Click on the Snakefile and nanopore.yaml file so you can edit them in Atom.
@@ -85,6 +86,7 @@ dependencies:
 ```
 
 **Concatenate and Filter Fastq File**
+
 Add these commands to the Snakefile, and hit save.
 ```
 FASTQ, = glob_wildcards("data/fastq/{sample}.fastq")
@@ -116,6 +118,7 @@ snakemake --use-conda --cores 2 output/merged_filtlong.fastq -n
 Run the command without the "-n" command next.
 
 **Create a Draft Assembly using flye**
+
 Add these commands to the Snakefile, and hit save.
 ```
 rule flye:
