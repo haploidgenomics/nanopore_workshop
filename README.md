@@ -85,6 +85,7 @@ dependencies:
  - flye =2.8.3
  - racon =1.4.20
  - medaka =1.0.3
+ - quast =5.0.2
 ```
 
 **Concatenate and Filter Fastq File**
@@ -186,14 +187,18 @@ Add these commands to the Snakefile, and hit save.
 rule medaka:
     input:
         reads="output/merged_filtlong.fastq",
+        draft="output/flye/assembly.fasta",
         racon="output/racon.fasta"
     output:
-        dir=directory("output/medaka")
+        dir1=directory("output/medaka_draft"),
+        dir2=directory("output/medaka_racon")
     conda:
         "env/nanopore.yaml"
     shell:
-        "medaka_consensus -i {input.reads} "
-        "-d {input.racon} -o {output.dir} -t 4 -m r941_min_high"
+        """
+        medaka_consensus -i {input.reads} -d {input.draft} -o {output.dir1} -t 4
+        medaka_consensus -i {input.reads} -d {input.racon} -o {output.dir2} -t 4
+        """
 ```
 
 You will then perform a dry run, followed by regular run using the snakemake command.
@@ -203,8 +208,28 @@ snakemake --use-conda --cores 2 output/medaka -n
 Run the command without the "-n" command next.
 
 ## Evaluating Assemblies
+Add these commands to the Snakefile, and hit save.
+```
+rule quast:
+    input:
+        draft="output/flye/assembly.fasta",
+        dir1="output/medaka_draft",
+        dir2="output/medaka_racon"
+    output:
+        dir3=directory("output/quast")
+    conda:
+        "env/nanopore.yaml"
+    shell:
+        "quast.py -t 4 -o {output.dir3} {input.draft} "
+        "output/medaka_draft/consensus.fasta"
+        "output/medaka_racon/consensus.fasta"
+```
 
-
+You will then perform a dry run, followed by regular run using the snakemake command.
+```
+snakemake --use-conda --cores 2 output/medaka -n
+```
+Run the command without the "-n" command next.
 
 ## Annotating Polished Assembly
 
