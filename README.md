@@ -1,11 +1,11 @@
 # Nanopore Workshop
 
-In this workshop, you will learn how to use Snakemake, a workflow management tool that enhances reprodicibility and scalability, to create an assembly of XX genome using the Nanopore Minion platform.
+In this workshop, you will learn how to use Snakemake, a workflow management tool that enhances reproducibility and scalability, to create a polished assembly of a circular archaeal genome sequenced on the MinION platform.
 
 This workshop assumes that you have:
 * A Mac/OS system
 * Basic unix command knowledge using Terminal on a Mac
-* A folder containing /fastq files basecalled from the MinION
+* A folder containing /fastq files basecalled from MinION
 * For this workshop, fastq files were generated from fast5 files base-called with Guppy 4.0 (there might be newer versions of Guppy available, which is updated by ONT on a regular basis, so check to use the latest version for best performance/accuracy)
 
 ## Installing Dependencies
