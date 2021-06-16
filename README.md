@@ -79,7 +79,6 @@ dependencies:
  - samtools =1.10
  - filtlong =0.2.0
  - minimap2 =2.17
- - bwa =0.7.17
  - biopython =1.77
  - python =3.6
  - flye =2.8.3
