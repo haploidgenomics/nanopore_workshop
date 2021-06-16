@@ -233,4 +233,6 @@ Run the command without the "-n" command next.
 
 ## Annotating Polished Assembly
 
-The goal is to find a single circular contig that is between 2.5 -- 3.0 Mb that is indicative of a fully assembled _Sulfolobus_ chromosome.
+The goal is to locate a circular contig that is between 2.5 -- 3.0 Mb that is indicative of a fully assembled and polished _Sulfolobus_ chromosome.
+
+Annotation of this chromosome will be performed on: https://dfast.ddbj.nig.ac.jp/
