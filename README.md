@@ -21,12 +21,14 @@ cd snakemake
 curl -L https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-MacOSX-x86_64.sh -o Mambaforge-MacOSX-x86_64.sh
 bash Mambaforge-MacOSX-x86_64.sh
 ```
-Answer "yes" to first question about license.  
+Answer "yes" to first question about license.
+
 Answer "no" to second question about activation (This prevents anaconda from activating without you knowing). If you accidentally answered "yes" you can undo it by typing the command below.
 ```
 conda config --set auto_activate_base false
 ```
-Next, close the terminal window.  
+Next, close the terminal window.
+
 Then, reopen a new terminal window to activate conda and install Snakemake.
 
 **Install Snakemake.**
@@ -65,7 +67,7 @@ You will follow along to see how this Snakemake Workflow is implemented so that 
 
 Open a new window on Atom, and click "Add Project Folder", then choose the /s42 folder (or the folder you're assigned to). After this, you should also launch a Terminal window in Atom by clicking "Packages" and then "Terminal". Terminal will appear at the bottom of the screen.
 
-Next, you will need to create two files to run snakemake. Using Atom, create a new file called "Snakefile". Then create a new folder called "env" and a file called "nanopore.yaml" within the env folder. Click on the Snakefile and nanopore.yaml file so you can edit them in Atom.
+Next, you will need to create two files to run snakemake. Using Atom, create a new file called "Snakefile". Then create a new folder called /env and a file called "nanopore.yaml" within the /env folder. Click on the Snakefile and nanopore.yaml file so you can edit them in Atom.
 
 Add these dependencies in the nanopore.yaml file, and hit save.
 ```
@@ -137,7 +139,7 @@ You will then perform a dry run, followed by regular run using the snakemake com
 ```
 snakemake --use-conda --cores 2 output/fyle -n
 ```
-Run the command without the "-n" command next.
+Run the command without the "-n" command next. This step will take a few hours, so we will run this overnight and continue on the next steps tomorrow.
 
 **Polish Draft Assembly using Racon**
 
@@ -200,6 +202,10 @@ snakemake --use-conda --cores 2 output/medaka -n
 ```
 Run the command without the "-n" command next.
 
+## Evaluating Assemblies
+
+
+
 ## Annotating Polished Assembly
 
-The goal is to find a single circular contig that is between 2.5 -- 3.0 Mb that is indicative of the entire chromosome.
+The goal is to find a single circular contig that is between 2.5 -- 3.0 Mb that is indicative of a fully assembled _Sulfolobus_ chromosome.
