@@ -110,7 +110,7 @@ rule filtlong_reads:
         "env/nanopore.yaml"
     shell:
         "filtlong --min_length 3000 --min_mean_q 30 --length_weight 10 -p 90 "
-        "--target_bases 500000000 {input} > {output}"
+        "--target_bases 600000000 {input} > {output}"
 ```
 You will then perform a dry run, followed by regular run using the snakemake command.
 ```
