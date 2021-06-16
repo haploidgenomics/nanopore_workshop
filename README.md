@@ -203,7 +203,7 @@ rule medaka:
 
 You will then perform a dry run, followed by regular run using the snakemake command.
 ```
-snakemake --use-conda --cores 2 output/medaka -n
+snakemake --use-conda --cores 2 output/medaka_draft -n
 ```
 Run the command without the "-n" command next.
 
@@ -227,7 +227,7 @@ rule quast:
 
 You will then perform a dry run, followed by regular run using the snakemake command.
 ```
-snakemake --use-conda --cores 2 output/medaka -n
+snakemake --use-conda --cores 2 output/quast -n
 ```
 Run the command without the "-n" command next.
 
