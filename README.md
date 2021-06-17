@@ -87,13 +87,14 @@ dependencies:
  - quast =5.0.2
 ```
 
-*Note on Medaka*
 
-If you run into issue with getting Medaka to work in the current environment, comment it out by adding "#" in front of it. Then run this command below when you're within the snakemake environment. This should allow Medaka to install correctly. This is a known issue that bioconda has not fixed.
+**_Note on Medaka_**
+
+If you run into issue with getting Medaka to work in the current environment, comment it out by adding "#" in front of it. Then run this command below when you're within the snakemake environment. This should allow Medaka to install correctly. This is a known issue on bioconda that has not been fixed.
 ```
 conda create -n medaka -c conda-forge -c bioconda medaka openblas==0.3.3
 ```
-You will also need to change the corresponding Medaka shell command under "rule medaka:"
+You will also need to change the corresponding Medaka shell command under "rule medaka:" under the section below.
 ```
 shell:
         """
