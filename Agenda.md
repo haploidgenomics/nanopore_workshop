@@ -15,7 +15,7 @@ Group 4 = s150
 Group 5 = s198  
 Group 6 = s311  
 
-Link to for download:
+Link to download your assigned dataset:  
 https://drive.google.com/drive/folders/1w_f_-0aYSIv5bzt50UbpJm1SmK93KYwF?usp=sharing
 
 Assignment:  
