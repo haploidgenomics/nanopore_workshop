@@ -87,6 +87,23 @@ dependencies:
  - quast =5.0.2
 ```
 
+*Note on Medaka*
+
+If you run into issue with getting Medaka to work in the current environment, comment it out by adding "#" in front of it. Then run this command below when you're within the snakemake environment. This should allow Medaka to install correctly. This is a known issue that bioconda has not fixed.
+```
+conda create -n medaka -c conda-forge -c bioconda medaka openblas==0.3.3
+```
+You will also need to change the corresponding Medaka shell command under "rule medaka:"
+```
+shell:
+        """
+        conda activate medaka
+        medaka_consensus -i {input.reads} -d {input.draft} -o {output.dir1} -t 4
+        medaka_consensus -i {input.reads} -d {input.racon} -o {output.dir2} -t 4
+        conda deactivate
+        """
+```
+
 **Concatenate and Filter Fastq File**
 
 Add these commands to the Snakefile, and hit save.
