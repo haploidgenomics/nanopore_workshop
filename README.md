@@ -63,7 +63,7 @@ First, you'll have to download the folder containing the the fastq files from th
 
 You will follow along to see how this Snakemake Workflow is implemented so that you can use it for other applications as well.
 
-**Create Project in Atom**
+## Create Project in Atom
 
 Open a new window on Atom, and click "Add Project Folder", then choose the /s42 folder (or the folder you're assigned to). After this, you should also launch a Terminal window in Atom by clicking "Packages" and then "Terminal". Terminal will appear at the bottom of the screen.
 
@@ -104,6 +104,8 @@ shell:
         conda deactivate
         """
 ```
+
+## Begin Snakemake
 
 **Concatenate and Filter Fastq File**
 
