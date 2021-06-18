@@ -76,7 +76,7 @@ channels:
  - bioconda
 dependencies:
  - bwa =0.7.17
- - samtools =1.10
+ - samtools =1.9
  - filtlong =0.2.0
  - minimap2 =2.17
  - biopython =1.77
@@ -238,7 +238,7 @@ rule quast:
         "env/nanopore.yaml"
     shell:
         "quast.py -t 4 -o {output.dir3} {input.draft} "
-        "output/medaka_draft/consensus.fasta"
+        "output/medaka_draft/consensus.fasta "
         "output/medaka_racon/consensus.fasta"
 ```
 
