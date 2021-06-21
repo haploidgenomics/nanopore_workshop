@@ -3,6 +3,7 @@
 ## Day 1
 
 * General overview
+* Introductions
 * Brief introduction to Snakemake workflow
 * Install dependencies
 * Divide into 6 groups
