@@ -4,7 +4,8 @@
 
 * General overview
 * Introductions
-* Brief introduction to Snakemake workflow
+* Brief introduction to MinION
+* Brief introduction to Snakemake
 * Install dependencies
 * Divide into 6 groups
 * Group to download data overnight
