@@ -255,3 +255,16 @@ Run the command without the "-n" command next.
 The goal is to locate a circular contig that is between 2.5 -- 3.0 Mb that is indicative of a fully assembled and polished _Sulfolobus_ chromosome.
 
 Annotation of this chromosome will be performed on: https://dfast.ddbj.nig.ac.jp/
+
+You can make a rule in Snakemake using samtools to extract the polished contig you've identified.
+```
+rule draft:
+    input:
+        "output/medaka_racon/consensus.fasta"
+    output:
+        "output/polished_genome.fasta"
+    conda:
+        "env/nanopore.yaml"
+    shell:
+        "samtools faidx {input} contig_1 > {output}"
+```
