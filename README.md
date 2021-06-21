@@ -23,15 +23,22 @@ bash Mambaforge-MacOSX-x86_64.sh
 ```
 Answer "yes" to first question about license.
 
-Answer "no" to second question about activation (This prevents anaconda from activating without you knowing). If you accidentally answered "yes" you can undo it by typing the command below.
-```
-conda config --set auto_activate_base false
-```
+Answer "yes" to second question about activation.
+
 Next, close the terminal window.
 
 Then, reopen a new terminal window to activate conda and install Snakemake.
 
 **Install Snakemake.**
+
+Next, you want to reset the autoactivation of conda to false.
+
+```
+conda deactivate
+conda config --set auto_activate_base false
+```
+
+Then, you install snakemake.
 ```
 conda activate base
 mamba create -c conda-forge -c bioconda -n snakemake snakemake
