@@ -27,9 +27,7 @@ Answer "yes" to second question about activation.
 
 Next, close the terminal window.
 
-Then, reopen a new terminal window to activate conda and install Snakemake.
-
-**Install Snakemake.**
+Then, reopen a new terminal window to activate conda.
 
 Next, you want to reset the autoactivation of conda to false.
 
@@ -37,6 +35,8 @@ Next, you want to reset the autoactivation of conda to false.
 conda deactivate
 conda config --set auto_activate_base false
 ```
+
+**Install Snakemake.**
 
 Then, you install snakemake.
 ```
