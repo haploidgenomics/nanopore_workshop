@@ -164,7 +164,7 @@ rule flye:
 
 You will then perform a dry run, followed by regular run using the snakemake command.
 ```
-snakemake --use-conda --cores 2 output/fyle -n
+snakemake --use-conda --cores 2 output/flye -n
 ```
 Run the command without the "-n" command next. This step will take a few hours, so we will run this overnight and continue on the next steps tomorrow.
 
